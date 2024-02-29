@@ -1,5 +1,6 @@
 package org.example.assignment.model
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import jakarta.persistence.CascadeType
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
@@ -15,6 +16,7 @@ data class Robot(
     @Id
     @Column(name = "robot_id")
     @GeneratedValue(strategy = GenerationType.UUID)
+    @JsonIgnore
     val id: UUID? = null,
 
     @OneToMany(fetch = FetchType.EAGER, cascade = [CascadeType.PERSIST])
