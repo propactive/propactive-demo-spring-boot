@@ -1,5 +1,6 @@
 package org.example.assignment.model
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.EnumType
@@ -13,6 +14,7 @@ data class Movement(
     @Id
     @Column(name = "movement_id")
     @GeneratedValue(strategy = SEQUENCE)
+    @JsonIgnore
     val id: Long? = null,
 
     @Column(name = "movement_direction")

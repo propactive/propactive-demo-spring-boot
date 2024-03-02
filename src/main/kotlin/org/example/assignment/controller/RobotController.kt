@@ -27,9 +27,9 @@ class RobotController(
     }
 
     @PostMapping("/moves")
-    fun deriveMovements(@RequestBody(required = true) coordinates: Array<Coordinate>) {
+    fun deriveMovements(@RequestBody(required = true) coordinates: Array<Coordinate>) = with(coordinates.toList()) {
         robotRepository
-            .save(Robot(movements = movesService.derive(coordinates.toList()), coordinates = coordinates.toList()))
+            .save(Robot(movements = movesService.derive(this), coordinates = this))
             .movements
     }
 }
