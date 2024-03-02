@@ -16,10 +16,10 @@ object MovesService {
         coordinates.size <= 1 -> emptyList()
         else -> coordinates
             .windowed(2, 1)
-            .fold(emptyList<Movement?>()) { acc, (start, end) ->
+            .fold(emptyList<Movement?>()) { acc, (previous, next) ->
                 acc
-                    .plus(calculate(start.x, end.x, EAST, WEST))
-                    .plus(calculate(start.y, end.y, NORTH, SOUTH))
+                    .plus(calculate(previous.x, next.x, EAST, WEST))
+                    .plus(calculate(previous.y, next.y, NORTH, SOUTH))
             }
             .filterNotNull()
     }
