@@ -16,18 +16,20 @@ import org.springframework.web.bind.annotation.RestController
 @RequestMapping("/")
 class RobotController(
     @Autowired val robotRepository: RobotRepository,
+    @Autowired val locationsService: LocationsService,
+    @Autowired val movesService: MovesService,
 ) {
     @PostMapping("/locations")
     fun deriveCoordinates(@RequestBody(required = true) movements: Array<Movement>) = with(movements.toList()) {
         robotRepository
-            .save(Robot(movements = this, coordinates = LocationsService.derive(this)))
+            .save(Robot(movements = this, coordinates = locationsService.derive(this)))
             .coordinates
     }
 
     @PostMapping("/moves")
     fun deriveMovements(@RequestBody(required = true) coordinates: Array<Coordinate>) {
         robotRepository
-            .save(Robot(movements = MovesService.derive(coordinates.toList()), coordinates = coordinates.toList()))
+            .save(Robot(movements = movesService.derive(coordinates.toList()), coordinates = coordinates.toList()))
             .movements
     }
 }

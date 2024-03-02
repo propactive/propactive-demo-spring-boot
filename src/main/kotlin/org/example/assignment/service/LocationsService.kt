@@ -6,7 +6,9 @@ import org.example.assignment.model.Direction.NORTH
 import org.example.assignment.model.Direction.SOUTH
 import org.example.assignment.model.Direction.WEST
 import org.example.assignment.model.Movement
+import org.springframework.stereotype.Service
 
+@Service
 object LocationsService {
 
     @JvmStatic
