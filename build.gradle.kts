@@ -1,3 +1,5 @@
+import org.gradle.api.JavaVersion.VERSION_21
+import org.gradle.api.tasks.wrapper.Wrapper.DistributionType.ALL
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -12,7 +14,7 @@ group = "org.example"
 version = "0.0.1-SNAPSHOT"
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = VERSION_21
 }
 
 repositories {
@@ -36,13 +38,19 @@ dependencies {
     developmentOnly(libs.spring.boot.starter.actuator)
 }
 
-tasks.withType<KotlinCompile> {
-    kotlinOptions {
-        freeCompilerArgs += "-Xjsr305=strict"
-        jvmTarget = "17"
+tasks {
+    withType<KotlinCompile> {
+        kotlinOptions {
+            freeCompilerArgs += "-Xjsr305=strict"
+            jvmTarget = VERSION_21.toString()
+        }
     }
-}
 
-tasks.withType<Test> {
-    useJUnitPlatform()
+    withType<Test> {
+        useJUnitPlatform()
+    }
+
+    wrapper {
+        distributionType = ALL
+    }
 }
