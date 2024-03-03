@@ -8,6 +8,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.jvm)
     alias(libs.plugins.jetbrains.kotlin.spring)
     alias(libs.plugins.jetbrains.kotlin.jpa)
+    alias(libs.plugins.propactive)
 }
 
 group = "org.example"
@@ -27,6 +28,7 @@ dependencies {
     implementation(libs.spring.boot.starter.jdbc)
     implementation(libs.spring.boot.starter.web)
     implementation(libs.jackson.module.kotlin)
+    implementation(libs.propactive.jvm)
 
     runtimeOnly(libs.h2)
 
@@ -36,6 +38,10 @@ dependencies {
     testImplementation(libs.rest.assured)
 
     developmentOnly(libs.spring.boot.starter.actuator)
+}
+
+propactive {
+    implementationClass = "org.example.assignment.config.Properties"
 }
 
 tasks {

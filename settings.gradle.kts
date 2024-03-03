@@ -10,12 +10,14 @@ dependencyResolutionManagement {
             val jacksonModuleKotlin = version("jacksonModuleKotlin", "2.16.1")
             val h2 = version("h2", "2.2.224")
             val restAssured = version("restAssured", "5.4.0")
+            val propactive = version("propactive", "2.1.0")
 
             plugin("spring-boot", "org.springframework.boot").versionRef(springBoot)
             plugin("spring-dependency-management", "io.spring.dependency-management").versionRef(springDependencyManagement)
             plugin("jetbrains-kotlin-jvm", "org.jetbrains.kotlin.jvm").versionRef(kotlin)
             plugin("jetbrains-kotlin-spring", "org.jetbrains.kotlin.plugin.spring").versionRef(kotlin)
             plugin("jetbrains-kotlin-jpa", "org.jetbrains.kotlin.plugin.jpa").versionRef(kotlin)
+            plugin("propactive", "io.github.propactive").versionRef(propactive)
 
             library("kotlin-reflect", "org.jetbrains.kotlin", "kotlin-reflect").versionRef(kotlin)
             library("spring-boot-starter-data-jpa", "org.springframework.boot", "spring-boot-starter-data-jpa").versionRef(springBoot)
@@ -28,6 +30,7 @@ dependencyResolutionManagement {
             library("kotest-runner-junit5", "io.kotest", "kotest-runner-junit5").versionRef(kotest)
             library("kotest-assertions-core", "io.kotest", "kotest-assertions-core").versionRef(kotest)
             library("rest-assured", "io.rest-assured", "rest-assured").versionRef(restAssured)
+            library("propactive-jvm", "io.github.propactive", "propactive-jvm").versionRef(propactive)
         }
     }
 }
