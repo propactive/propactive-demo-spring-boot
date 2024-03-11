@@ -1,3 +1,17 @@
+# Propactive Demo (Spring Boot) 
+
+## Overview
+
+This project was initially part of a research assessment for JetBrains. It has been repurposed as a sample project demonstrating the use of the [Propactive](https://github.com/propactive/propactive?tab=readme-ov-file#propactive) framework in a simple Spring Boot application.
+
+- You can observe the project state before and after the Propactive framework was [onboarded in this commit](https://github.com/propactive/propactive-demo-spring-boot/commit/54883d3e4831ecf8a7f2f291d82db133b32f680b).
+- The properties implementation class can be [found here](https://github.com/propactive/propactive-demo-spring-boot/blob/main/src/main/kotlin/org/example/assignment/config/Properties.kt).
+
+Given that Propactive automatically generates the application properties by default, no further changes were required to maintain the same application flow for this Spring Boot app. The addition simply provided 10 unit tests out-of-the-box for free. 🙂
+
+
+## Original Instructions
+
 ### Operating a robot
 
 We are operating a robot. The robot can move in four directions only: North, East, West, and South. Each move is specified as a direction and a number of steps.
@@ -51,3 +65,4 @@ The web service endpoints should implement the following functionality:
 * *Optional*: Find the shortest path through all of the locations provided as an input.
 * *Note*: For testing you could also use commands from [requests.http](requests.http)
 
+___
